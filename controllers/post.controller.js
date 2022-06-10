@@ -15,7 +15,6 @@ module.exports = {
     return res.render('post/create');
   },
 
-
   // Store post to database
   store: async (req, res) => {
     await Post.create({
