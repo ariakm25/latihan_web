@@ -2,7 +2,7 @@ const Post = require('../models/Post');
 
 module.exports = {
   index: async (req, res) => {
-    // Menampilkan semua data post
+    // Menampilkan semua data
     const posts = await Post.findAll();
 
     return res.render('post/index', {
