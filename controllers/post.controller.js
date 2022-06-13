@@ -41,5 +41,15 @@ module.exports = {
     })
     
     return res.redirect('/posts')
-  }
+  },
+
+	// delete post from database
+	delete: async (req, res) => {
+		await Post.destroy({
+			where: {
+				id: req.params.id,
+			},
+		});
+		return res.redirect('/posts');
+	}
 };
