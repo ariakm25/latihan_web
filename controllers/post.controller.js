@@ -23,5 +23,13 @@ module.exports = {
     });
 
     return res.redirect('/posts');
+  },
+
+  // Edit Post
+  edit: async (req, res) => {
+    const data = await Post.findByPk(req.params.id);
+    return res.render('post/edit', {
+      data
+    });
   }
 };
