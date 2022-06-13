@@ -23,5 +23,15 @@ module.exports = {
     });
 
     return res.redirect('/posts');
-  }
+  },
+  update : async (req, res)=>{
+    console.log(req.body)
+    await Post.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    })
+    
+    return res.redirect('/posts')
+  },
 };
