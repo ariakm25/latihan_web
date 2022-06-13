@@ -25,11 +25,21 @@ module.exports = {
     return res.redirect('/posts');
   },
 
-  // Edit Post
   edit: async (req, res) => {
     const data = await Post.findByPk(req.params.id);
     return res.render('post/edit', {
       data
-    });
+    })
+  },
+
+  update : async (req, res)=>{
+    console.log(req.body)
+    await Post.update(req.body, {
+      where: {
+        id: req.params.id
+      },
+    })
+    
+    return res.redirect('/posts')
   }
 };
